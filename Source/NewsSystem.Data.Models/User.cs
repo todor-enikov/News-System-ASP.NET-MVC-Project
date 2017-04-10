@@ -22,10 +22,19 @@ namespace NewsSystem.Data.Models
         [Key]
         public override string Id { get; set; }
 
+        [Required]
+        [MinLength(5)]
+        [MaxLength(15)]
         public override string UserName { get; set; }
 
+        [Required]
+        [MinLength(2)]
+        [MaxLength(15)]
         public string FirstName { get; set; }
 
+        [Required]
+        [MinLength(2)]
+        [MaxLength(15)]
         public string LastName { get; set; }
 
         //public virtual Guid ArticleId { get; set; }

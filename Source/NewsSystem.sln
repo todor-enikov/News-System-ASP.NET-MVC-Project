@@ -5,7 +5,7 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewsSystem.Data.Models", "NewsSystem.Data.Models\NewsSystem.Data.Models.csproj", "{874288C5-4D2A-49F4-98AB-6815819810E2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Newssystem.Data", "Newssystem.Data\Newssystem.Data.csproj", "{F50322EE-3BBE-4677-9B54-F10CF741DBF0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewsSystem.Data", "Newssystem.Data\NewsSystem.Data.csproj", "{F50322EE-3BBE-4677-9B54-F10CF741DBF0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewsSystem.Common", "NewsSystem.Common\NewsSystem.Common.csproj", "{3C1021DD-D40D-4EED-A9C8-C960E2CF6A45}"
 EndProject
