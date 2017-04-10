@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace NewsSystem.Common
 {
-    public class Class1
+    public class ApplicationConstants
     {
+        // User Roles
+        public const string AdminRole = "Admin";
+        public const string UserRole = "User";
     }
 }
