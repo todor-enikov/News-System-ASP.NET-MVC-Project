@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NewsSystem.Services
 {
-    class NewsService
+    public class NewsService
     {
     }
 }
