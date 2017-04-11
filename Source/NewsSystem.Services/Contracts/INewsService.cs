@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NewsSystem.Data.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +9,14 @@ namespace NewsSystem.Services.Contracts
 {
     public interface INewsService
     {
+        IQueryable<Article> GetAllNews();
+
+        Article GetNewsById(string id);
+
+        void AddNews(Article newsToAdd);
+
+        void UpdateNews(Article newsToUpdate);
+
+        void DeleteNews(Article newsToDelete);
     }
 }
