@@ -8,5 +8,6 @@ namespace NewsSystem.Services.Contracts
 {
     public interface IUploadImageService
     {
+        string ImagePath();
     }
 }
