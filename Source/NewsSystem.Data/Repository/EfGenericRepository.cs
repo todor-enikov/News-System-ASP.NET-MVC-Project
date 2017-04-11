@@ -24,9 +24,9 @@ namespace Newssystem.Data.Repository
 
         protected INewsSystemDbContext Context { get; set; }
 
-        public virtual IEnumerable<T> All()
+        public virtual IQueryable<T> All()
         {
-            return this.DbSet.AsEnumerable();
+            return this.DbSet;
         }
 
         public virtual T GetById(object id)

@@ -9,7 +9,7 @@ namespace Newssystem.Data.Repository
     public interface IEfGenericRepository<T>
           where T : class
     {
-        IEnumerable<T> All();
+        IQueryable<T> All();
 
         T GetById(object id);
 
