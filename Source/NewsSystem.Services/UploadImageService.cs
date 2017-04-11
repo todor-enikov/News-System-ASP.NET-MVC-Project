@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NewsSystem.Services.Contracts;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace NewsSystem.Services
 {
-    public class UploadImageService
+    public class UploadImageService : IUploadImageService
     {
         public string ImagePath()
         {
