@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewsSystem.Common", "NewsSy
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewsSystem.Services", "NewsSystem.Services\NewsSystem.Services.csproj", "{B50F3791-4FC3-4D09-A8D2-1C0DDA9EFA91}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewsSystem.Auth", "NewsSystem.Auth\NewsSystem.Auth.csproj", "{4EE41AA1-6B2F-4EAD-A556-70A9895BC8C6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{B50F3791-4FC3-4D09-A8D2-1C0DDA9EFA91}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B50F3791-4FC3-4D09-A8D2-1C0DDA9EFA91}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B50F3791-4FC3-4D09-A8D2-1C0DDA9EFA91}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4EE41AA1-6B2F-4EAD-A556-70A9895BC8C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4EE41AA1-6B2F-4EAD-A556-70A9895BC8C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4EE41AA1-6B2F-4EAD-A556-70A9895BC8C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4EE41AA1-6B2F-4EAD-A556-70A9895BC8C6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
