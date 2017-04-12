@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewsSystem.Services", "News
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewsSystem.Auth", "NewsSystem.Auth\NewsSystem.Auth.csproj", "{4EE41AA1-6B2F-4EAD-A556-70A9895BC8C6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewsSystem.Client.MVC", "NewsSystem.Client.MVC\NewsSystem.Client.MVC.csproj", "{A03747D7-67A5-451A-98E2-CDC11B7A490F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{4EE41AA1-6B2F-4EAD-A556-70A9895BC8C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4EE41AA1-6B2F-4EAD-A556-70A9895BC8C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4EE41AA1-6B2F-4EAD-A556-70A9895BC8C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A03747D7-67A5-451A-98E2-CDC11B7A490F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A03747D7-67A5-451A-98E2-CDC11B7A490F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A03747D7-67A5-451A-98E2-CDC11B7A490F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A03747D7-67A5-451A-98E2-CDC11B7A490F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
