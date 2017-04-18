@@ -1,4 +1,5 @@
-﻿using NewsSystem.Client.MVC.Models.UserViewModels;
+﻿using NewsSystem.Client.MVC.Models.ArticleViewModels;
+using NewsSystem.Client.MVC.Models.UserViewModels;
 using NewsSystem.Services.Contracts;
 using System;
 using System.Collections.Generic;
@@ -40,9 +41,34 @@ namespace NewsSystem.Client.MVC.Controllers
         }
 
         [HttpGet]
-        public ActionResult Details()
+        public ActionResult Details(string id)
         {
-            return View();
+            var userFromDB = this.userService
+                                             .GetUserById(id);
+            var userFromDbArticles = userFromDB.Articles;
+            var articles = new List<UserArticleViewModel>();
+
+            foreach (var userArticle in userFromDbArticles)
+            {
+                var articleToAdd = new UserArticleViewModel()
+                {
+                    Id = userArticle.Id,
+                    Title = userArticle.Title
+                };
+
+                articles.Add(articleToAdd);
+            }
+
+            var viewModel = new UserDetailsViewModel()
+            {
+                FirstName = userFromDB.FirstName,
+                LastName = userFromDB.LastName,
+                UserName = userFromDB.UserName,
+                Email = userFromDB.Email,
+                UserArticles = articles
+            };
+
+            return View(viewModel);
         }
 
         [HttpPost]
