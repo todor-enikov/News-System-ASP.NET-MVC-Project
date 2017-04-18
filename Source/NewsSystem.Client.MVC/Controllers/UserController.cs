@@ -89,6 +89,7 @@ namespace NewsSystem.Client.MVC.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Edit(UserDetailsViewModel model, string id)
         {
             var userToUpdate = this.userService
