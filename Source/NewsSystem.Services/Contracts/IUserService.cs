@@ -15,6 +15,8 @@ namespace NewsSystem.Services.Contracts
 
         IQueryable<User> GetUserByUserName(string username);
 
+        void Update(User userToUpdate);
+
         void UpdateUserRole(User userToUpdate);
     }
 }

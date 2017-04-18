@@ -39,6 +39,12 @@ namespace NewsSystem.Services
                                 .Where(u => u.UserName.Contains(username));
         }
 
+        public void Update(User userToUpdate)
+        {
+            this.userRepo.Update(userToUpdate);
+            this.userRepo.SaveChanges();
+        }
+
         public void UpdateUserRole(User userToUpdate)
         {
             this.userRepo.Update(userToUpdate);
