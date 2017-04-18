@@ -2,7 +2,6 @@
 
 @{
     ViewBag.Title = "User details.";
-    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <br />
 <br />
@@ -40,6 +39,14 @@
             </div>
             <div class="col-md-6">
                 <strong>@Html.Encode(Model.Email)</strong>
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col-md-6 text-right">
+                @Html.Label("Edit user's details: ")
+            </div>
+            <div class="col-md-6">
+                @Html.ActionLink("Edit", "Edit", "User", new { id = Model.Id }, null)
             </div>
         </div>
         @if (Model.UserArticles.Count <= 0)
