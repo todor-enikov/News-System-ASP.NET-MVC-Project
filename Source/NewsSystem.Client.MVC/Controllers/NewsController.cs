@@ -17,5 +17,10 @@ namespace NewsSystem.Client.MVC.Controllers
         {
             return View();
         }
+
+        public ActionResult Details()
+        {
+            return View();
+        }
     }
 }
