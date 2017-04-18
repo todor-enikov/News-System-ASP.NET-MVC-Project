@@ -33,6 +33,12 @@ namespace NewsSystem.Services
             return this.userRepo.GetById(id);
         }
 
+        public IQueryable<User> GetUserByUserName(string username)
+        {
+            return this.userRepo.All()
+                                .Where(u => u.UserName.Contains(username));
+        }
+
         public void UpdateUserRole(User userToUpdate)
         {
             this.userRepo.Update(userToUpdate);

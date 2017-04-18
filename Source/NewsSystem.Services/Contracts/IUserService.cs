@@ -13,6 +13,8 @@ namespace NewsSystem.Services.Contracts
 
         User GetUserById(string id);
 
+        IQueryable<User> GetUserByUserName(string username);
+
         void UpdateUserRole(User userToUpdate);
     }
 }
