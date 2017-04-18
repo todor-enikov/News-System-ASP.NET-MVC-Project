@@ -61,6 +61,7 @@ namespace NewsSystem.Client.MVC.Controllers
 
             var viewModel = new UserDetailsViewModel()
             {
+                Id = id,
                 FirstName = userFromDB.FirstName,
                 LastName = userFromDB.LastName,
                 UserName = userFromDB.UserName,
@@ -69,6 +70,36 @@ namespace NewsSystem.Client.MVC.Controllers
             };
 
             return View(viewModel);
+        }
+
+        [HttpGet]
+        public ActionResult Edit(string id)
+        {
+            var userFromDb = this.userService
+                                             .GetUserById(id);
+            var viewModel = new UserDetailsViewModel()
+            {
+                Email = userFromDb.Email,
+                FirstName = userFromDb.FirstName,
+                LastName = userFromDb.LastName,
+                UserName = userFromDb.UserName
+            };
+
+            return View(viewModel);
+        }
+
+        [HttpPost]
+        public ActionResult Edit(UserDetailsViewModel model, string id)
+        {
+            var userToUpdate = this.userService
+                                               .GetUserById(id);
+            userToUpdate.Email = model.Email;
+            userToUpdate.FirstName = model.FirstName;
+            userToUpdate.LastName = model.LastName;
+            userToUpdate.UserName = model.UserName;
+            this.userService.Update(userToUpdate);
+
+            return RedirectToAction("Details", "User", new { id = model.Id });
         }
 
         [HttpPost]
