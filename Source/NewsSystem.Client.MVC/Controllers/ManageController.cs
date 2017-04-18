@@ -33,9 +33,9 @@ namespace NewsSystem.Client.MVC.Controllers
             {
                 return _signInManager ?? HttpContext.GetOwinContext().Get<SignInManager>();
             }
-            private set 
-            { 
-                _signInManager = value; 
+            private set
+            {
+                _signInManager = value;
             }
         }
 
@@ -65,14 +65,17 @@ namespace NewsSystem.Client.MVC.Controllers
                 : "";
 
             var userId = User.Identity.GetUserId();
+            var user = UserManager.FindById(userId);
+
             var model = new IndexViewModel
             {
+                UserName = user.UserName,
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                Email = user.Email,
                 HasPassword = HasPassword(),
-                PhoneNumber = await UserManager.GetPhoneNumberAsync(userId),
-                TwoFactor = await UserManager.GetTwoFactorEnabledAsync(userId),
-                Logins = await UserManager.GetLoginsAsync(userId),
-                BrowserRemembered = await AuthenticationManager.TwoFactorBrowserRememberedAsync(userId)
             };
+
             return View(model);
         }
 
@@ -118,7 +121,7 @@ namespace NewsSystem.Client.MVC.Controllers
             base.Dispose(disposing);
         }
 
-#region Helpers
+        #region Helpers
         // Used for XSRF protection when adding external logins
         private const string XsrfKey = "XsrfId";
 
@@ -169,6 +172,6 @@ namespace NewsSystem.Client.MVC.Controllers
             Error
         }
 
-#endregion
+        #endregion
     }
 }
