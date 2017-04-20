@@ -11,6 +11,7 @@ using Microsoft.Owin.Security;
 using NewsSystem.Auth;
 using NewsSystem.Data.Models;
 using NewsSystem.Client.MVC.Models;
+using NewsSystem.Common;
 
 namespace NewsSystem.Client.MVC.Controllers
 {
@@ -121,6 +122,7 @@ namespace NewsSystem.Client.MVC.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                    UserManager.AddToRole(user.Id, ApplicationConstants.UserRole);
                     await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
 
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771

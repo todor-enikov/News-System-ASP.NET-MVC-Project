@@ -267,6 +267,10 @@
       <Project>{4ee41aa1-6b2f-4ead-a556-70a9895bc8c6}</Project>
       <Name>NewsSystem.Auth</Name>
     </ProjectReference>
+    <ProjectReference Include="..\NewsSystem.Common\NewsSystem.Common.csproj">
+      <Project>{3C1021DD-D40D-4EED-A9C8-C960E2CF6A45}</Project>
+      <Name>NewsSystem.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\NewsSystem.Data.Models\NewsSystem.Data.Models.csproj">
       <Project>{874288c5-4d2a-49f4-98ab-6815819810e2}</Project>
       <Name>NewsSystem.Data.Models</Name>
