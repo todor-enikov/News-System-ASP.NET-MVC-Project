@@ -1,21 +1,48 @@
-﻿using NewsSystem.Client.MVC.Models.ArticleViewModels;
+﻿using Microsoft.AspNet.Identity.Owin;
+using NewsSystem.Auth;
+using NewsSystem.Client.MVC.Models.ArticleViewModels;
 using NewsSystem.Client.MVC.Models.UserViewModels;
+using NewsSystem.Common;
 using NewsSystem.Services.Contracts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity;
+using System.Web.Security;
+using Newssystem.Data;
 
 namespace NewsSystem.Client.MVC.Controllers
 {
     public class UserController : Controller
     {
         private readonly IUserService userService;
+        private readonly IRoleService roleService;
 
-        public UserController(IUserService userService)
+        private UserManager userManager;
+
+        public UserController(IUserService userService, IRoleService roleService)
         {
             this.userService = userService;
+            this.roleService = roleService;
+        }
+
+        public UserController(UserManager userManager)
+        {
+            UserManager = userManager;
+        }
+
+        public UserManager UserManager
+        {
+            get
+            {
+                return userManager ?? HttpContext.GetOwinContext().GetUserManager<UserManager>();
+            }
+            private set
+            {
+                userManager = value;
+            }
         }
 
         [HttpGet]
@@ -59,6 +86,9 @@ namespace NewsSystem.Client.MVC.Controllers
                 articles.Add(articleToAdd);
             }
 
+            var userRole = userFromDB.Roles.SingleOrDefault().RoleId;
+            var role = roleService.GetCurrentRoleOfUser(userRole);
+
             var viewModel = new UserDetailsViewModel()
             {
                 Id = id,
@@ -66,10 +96,33 @@ namespace NewsSystem.Client.MVC.Controllers
                 LastName = userFromDB.LastName,
                 UserName = userFromDB.UserName,
                 Email = userFromDB.Email,
-                UserArticles = articles
+                UserArticles = articles,
+                Role = role
             };
 
             return View(viewModel);
+        }
+
+        [HttpPost]
+        public ActionResult Details(string id, string un)
+        {
+            var user = this.userService
+                                       .GetUserById(id);
+            var userRole = user.Roles.SingleOrDefault().RoleId;
+
+            var role = roleService.GetCurrentRoleOfUser(userRole);
+            if (role == ApplicationConstants.AdminRole)
+            {
+                UserManager.AddToRole(id, ApplicationConstants.UserRole);
+                UserManager.RemoveFromRole(id, ApplicationConstants.AdminRole);
+            }
+            else
+            {
+                UserManager.AddToRole(id, ApplicationConstants.AdminRole);
+                UserManager.RemoveFromRole(id, ApplicationConstants.UserRole);
+            }
+
+            return RedirectToAction("Index", "Success");
         }
 
         [HttpGet]
@@ -107,7 +160,6 @@ namespace NewsSystem.Client.MVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Search(string search)
         {
-
             var userModel = this.userService
                                 .GetUserByUserName(search);
 

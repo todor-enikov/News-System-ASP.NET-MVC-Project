@@ -17,7 +17,7 @@ namespace NewsSystem.Services
         {
             if (newsRepo == null)
             {
-                throw new ArgumentException("The car repo should not be null!");
+                throw new ArgumentException("The news repo should not be null!");
             }
 
             this.newsRepo = newsRepo;
