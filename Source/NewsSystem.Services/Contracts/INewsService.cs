@@ -17,6 +17,8 @@ namespace NewsSystem.Services.Contracts
 
         IQueryable<Article> GetNewsByTitle(string title);
 
+        IQueryable<Article> GetLastFourAddedNews();
+
         void UpdateNews(Article newsToUpdate);
 
         void DeleteNews(Article newsToDelete);

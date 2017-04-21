@@ -45,6 +45,14 @@ namespace NewsSystem.Services
                                 .Where(a => a.Title.Contains(title));
         }
 
+        public IQueryable<Article> GetLastFourAddedNews()
+        {
+            var allNews = this.GetAllNews()
+                              .OrderByDescending(x => x.AddedOn)
+                              .Take(4);
+            return allNews;
+        }
+
         public void UpdateNews(Article newsToUpdate)
         {
             this.newsRepo.Update(newsToUpdate);
