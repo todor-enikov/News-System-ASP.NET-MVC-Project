@@ -137,15 +137,55 @@ namespace NewsSystem.Client.MVC.Controllers
         }
 
         [HttpGet]
-        public ActionResult Edit(string id)
+        public ActionResult Edit(Guid id)
         {
-            return View();
+            var newsFromDb = this.newsService
+                                             .GetNewsById(id);
+            var viewModel = new CreateNewsViewModel()
+            {
+                Title = newsFromDb.Title,
+                Resume = newsFromDb.Resume,
+                Content = newsFromDb.Content,
+                Id = newsFromDb.Id
+            };
+
+            return View(viewModel);
         }
 
         [HttpPost]
-        public ActionResult Edit()
+        public ActionResult Edit(CreateNewsViewModel model, Guid id)
         {
-            return View();
+            var userId = User.Identity.GetUserId();
+            var file = model.ImageFile;
+            var imagePath = ApplicationConstants.ImagePath + file.FileName;
+            if (file != null)
+            {
+                if (file.ContentLength > 0)
+                {
+                    if (Path.GetExtension(file.FileName).ToLower() == ".jpg"
+                     || Path.GetExtension(file.FileName).ToLower() == ".jpeg"
+                     || Path.GetExtension(file.FileName).ToLower() == ".png"
+                     || Path.GetExtension(file.FileName).ToLower() == ".gif")
+                    {
+                        var fileName = Path.GetFileName(file.FileName);
+                        var path = Path.Combine(Server.MapPath(ApplicationConstants.ImagePath), fileName);
+                        file.SaveAs(path);
+                    }
+                }
+            }
+
+            var newsToUpdate = newsService
+                                        .GetNewsById(id);
+
+            newsToUpdate.Title = model.Title;
+            newsToUpdate.Resume = model.Resume;
+            newsToUpdate.Content = model.Content;
+            newsToUpdate.AddedOn = DateTime.UtcNow;
+            newsToUpdate.ImagePath = imagePath;
+            newsToUpdate.UserId = userId;
+            this.newsService.UpdateNews(newsToUpdate);
+
+            return RedirectToAction("Details", "News", new { id = model.Id }); ;
         }
     }
 }
