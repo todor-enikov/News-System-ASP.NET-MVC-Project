@@ -1,7 +1,71 @@
-﻿
+﻿@model NewsSystem.Client.MVC.Models.NewsViewModels.CreateNewsViewModel
+
 @{
     ViewBag.Title = "Create news.";
 }
 
-<h2>Create news page.</h2>
+@*<h2>Create news page.</h2>
+    @using (Html.BeginForm("AddNews", "News", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <input type="file" name="ImageFile" value="Browse" class="form-control" />
+        <input type="submit" value="Submit!" />
+    }*@
 
+<br />
+<br />
+<div class="row">
+    <h1 class="text-center">Create news page!</h1>
+    <div class="well col-md-6 col-md-offset-3">
+        <br />
+        @using (Html.BeginForm("AddNews", "News", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+            <div class="row form-group">
+                <div class="col-md-4 text-right">
+                    @Html.Label("Title: ")
+                </div>
+                <div class="col-md-7">
+                    @Html.TextBoxFor(m => m.Title, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.Title)
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-md-4 text-right">
+                    @Html.Label("Resume: ")
+                </div>
+                <div class="col-md-7">
+                    @Html.TextBoxFor(m => m.Resume, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.Resume)
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-md-4 text-right">
+                    @Html.Label("Content: ")
+                </div>
+                <div class="col-md-7">
+                    @Html.TextAreaFor(m => m.Content, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.Content)
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-md-4 text-right">
+                    @Html.Label("Choose image: ")
+                </div>
+                <div class="col-md-7">
+                    @Html.TextBoxFor(m => m.ImageFile, new { type = "file", @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.ImageFile)
+                </div>
+            </div>
+
+            <div class="text-center">
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                    <input type="submit" value="Create News" class="form-control">
+                </div>
+            </div>
+        }
+    </div>
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
