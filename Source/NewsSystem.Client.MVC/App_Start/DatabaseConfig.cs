@@ -1,10 +1,6 @@
 ﻿using Newssystem.Data;
 using Newssystem.Data.Migrations;
-using System;
-using System.Collections.Generic;
 using System.Data.Entity;
-using System.Linq;
-using System.Web;
 
 namespace NewsSystem.Client.MVC.App_Start
 {

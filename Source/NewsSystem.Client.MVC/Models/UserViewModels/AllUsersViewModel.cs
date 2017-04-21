@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace NewsSystem.Client.MVC.Models.UserViewModels
+﻿namespace NewsSystem.Client.MVC.Models.UserViewModels
 {
     public class AllUsersViewModel
     {

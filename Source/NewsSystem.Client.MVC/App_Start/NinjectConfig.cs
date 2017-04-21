@@ -3,17 +3,15 @@
 
 namespace NewsSystem.Client.MVC.App_Start
 {
-    using System;
-    using System.Web;
-
     using Microsoft.Web.Infrastructure.DynamicModuleHelper;
-
-    using Ninject;
-    using Ninject.Web.Common;
     using Newssystem.Data;
     using Newssystem.Data.Repository;
-    using Services.Contracts;
+    using Ninject;
+    using Ninject.Web.Common;
     using Services;
+    using Services.Contracts;
+    using System;
+    using System.Web;
 
     public static class NinjectConfig
     {

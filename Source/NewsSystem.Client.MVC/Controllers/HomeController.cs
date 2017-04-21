@@ -1,9 +1,6 @@
 ﻿using NewsSystem.Client.MVC.Models.NewsViewModels;
 using NewsSystem.Services.Contracts;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace NewsSystem.Client.MVC.Controllers

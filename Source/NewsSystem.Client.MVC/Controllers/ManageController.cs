@@ -1,13 +1,11 @@
-﻿using System;
-using System.Linq;
+﻿using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
+using Microsoft.Owin.Security;
+using NewsSystem.Auth;
+using NewsSystem.Client.MVC.Models;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.Owin;
-using Microsoft.Owin.Security;
-using NewsSystem.Client.MVC.Models;
-using NewsSystem.Auth;
 
 namespace NewsSystem.Client.MVC.Controllers
 {

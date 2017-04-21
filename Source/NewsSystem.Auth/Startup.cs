@@ -6,10 +6,6 @@ using Newssystem.Data;
 using NewsSystem.Data.Models;
 using Owin;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 [assembly: OwinStartupAttribute(typeof(NewsSystem.Auth.Startup))]
 namespace NewsSystem.Auth

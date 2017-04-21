@@ -1,17 +1,14 @@
-﻿using Microsoft.AspNet.Identity.Owin;
+﻿using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
 using NewsSystem.Auth;
 using NewsSystem.Client.MVC.Models.NewsViewModels;
 using NewsSystem.Client.MVC.Models.UserViewModels;
 using NewsSystem.Common;
 using NewsSystem.Services.Contracts;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using Microsoft.AspNet.Identity;
-using System.Web.Security;
-using Newssystem.Data;
 
 namespace NewsSystem.Client.MVC.Controllers
 {

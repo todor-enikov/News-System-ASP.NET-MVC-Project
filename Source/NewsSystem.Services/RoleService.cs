@@ -1,14 +1,7 @@
-﻿using Newssystem.Data.Repository;
+﻿using Newssystem.Data;
 using NewsSystem.Services.Contracts;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data;
-using NewsSystem.Data.Models;
-using Newssystem.Data;
-using System.Web.Security;
+using System.Linq;
 
 namespace NewsSystem.Services
 {

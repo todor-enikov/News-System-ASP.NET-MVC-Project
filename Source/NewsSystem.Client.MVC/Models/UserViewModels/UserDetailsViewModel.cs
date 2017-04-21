@@ -1,10 +1,6 @@
 ﻿using NewsSystem.Client.MVC.Models.NewsViewModels;
-using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
 
 namespace NewsSystem.Client.MVC.Models.UserViewModels
 {
