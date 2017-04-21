@@ -71,7 +71,6 @@ namespace NewsSystem.Client.MVC.App_Start
             kernel.Bind<IUserService>().To<UserService>();
             kernel.Bind<INewsService>().To<NewsService>();
             kernel.Bind<IRoleService>().To<RoleService>();
-            kernel.Bind<IUploadImageService>().To<UploadImageService>();
         }
     }
 }
