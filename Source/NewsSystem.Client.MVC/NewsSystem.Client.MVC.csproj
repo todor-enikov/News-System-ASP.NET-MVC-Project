@@ -196,6 +196,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\NewsViewModels\AllNewsViewModel.cs" />
     <Compile Include="Models\NewsViewModels\CreateNewsViewModel.cs" />
+    <Compile Include="Models\NewsViewModels\NewsDetailsViewModel.cs" />
     <Compile Include="Models\NewsViewModels\UserNewsViewModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\UserViewModels\AllUsersViewModel.cs" />
@@ -255,6 +256,7 @@
     <Content Include="Views\User\Edit.cshtml" />
     <Content Include="Views\Success\Index.cshtml" />
     <Content Include="Views\Shared\_AllNews.cshtml" />
+    <Content Include="Views\News\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

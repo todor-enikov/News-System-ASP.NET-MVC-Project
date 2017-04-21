@@ -88,9 +88,24 @@ namespace NewsSystem.Client.MVC.Controllers
         }
 
         [HttpGet]
-        public ActionResult Details()
+        public ActionResult Details(Guid id)
         {
-            return View();
+            var newsFromDb = this.newsService
+                                             .GetNewsById(id);
+
+            var viewModel = new NewsDetailsViewModel()
+            {
+                Id = newsFromDb.Id,
+                Title = newsFromDb.Title,
+                Resume = newsFromDb.Resume,
+                Content = newsFromDb.Content,
+                AddedOn = newsFromDb.AddedOn,
+                ImagePath = newsFromDb.ImagePath,
+                AuthorId = newsFromDb.UserId,
+                Author = newsFromDb.User.UserName
+            };
+
+            return View(viewModel);
         }
 
         [HttpPost]
@@ -119,6 +134,18 @@ namespace NewsSystem.Client.MVC.Controllers
             }
 
             return PartialView("_AllNews", viewModel);
+        }
+
+        [HttpGet]
+        public ActionResult Edit(string id)
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Edit()
+        {
+            return View();
         }
     }
 }
