@@ -28,7 +28,7 @@ namespace NewsSystem.Services
             return this.newsRepo.All();
         }
 
-        public Article GetNewsById(string id)
+        public Article GetNewsById(Guid id)
         {
             return this.newsRepo.GetById(id);
         }

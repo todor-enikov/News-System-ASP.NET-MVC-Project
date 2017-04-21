@@ -11,7 +11,7 @@ namespace NewsSystem.Services.Contracts
     {
         IQueryable<Article> GetAllNews();
 
-        Article GetNewsById(string id);
+        Article GetNewsById(Guid id);
 
         void AddNews(Article newsToAdd);
 
