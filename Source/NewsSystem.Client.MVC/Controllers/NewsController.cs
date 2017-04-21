@@ -21,9 +21,25 @@ namespace NewsSystem.Client.MVC.Controllers
             this.newsService = newsService;
         }
 
+        [HttpGet]
         public ActionResult Index()
         {
-            return View();
+            var allNewsFromDb = this.newsService
+                                                .GetAllNews();
+            var viewModel = new List<AllNewsViewModel>();
+
+            foreach (var news in allNewsFromDb)
+            {
+                var currentNews = new AllNewsViewModel()
+                {
+                    Id = news.Id,
+                    Title = news.Title
+                };
+
+                viewModel.Add(currentNews);
+            }
+
+            return View(viewModel);
         }
 
         [HttpGet]
@@ -73,6 +89,34 @@ namespace NewsSystem.Client.MVC.Controllers
         public ActionResult Details()
         {
             return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Search(string search)
+        {
+            var newsModel = this.newsService
+                                            .GetNewsByTitle(search);
+
+            var viewModel = new List<AllNewsViewModel>();
+
+            foreach (var news in newsModel)
+            {
+                var currentNews = new AllNewsViewModel()
+                {
+                    Id = news.Id,
+                    Title = news.Title
+                };
+
+                viewModel.Add(currentNews);
+            }
+
+            if (viewModel.Count < 1)
+            {
+                return PartialView("_NoResults", viewModel);
+            }
+
+            return PartialView("_AllNews", viewModel);
         }
     }
 }

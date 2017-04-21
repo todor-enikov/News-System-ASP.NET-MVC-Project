@@ -1,7 +1,41 @@
-﻿
+﻿@model List<NewsSystem.Client.MVC.Models.NewsViewModels.AllNewsViewModel>
+
 @{
-    ViewBag.Title = "Alle news.";
+    ViewBag.Title = "All users.";
 }
 
-<h2>All news page.</h2>
+<br />
+<h1 class="text-center">All news page!</h1>
+<br />
+<div class="row col-md-offset-3">
+    @using (Ajax.BeginForm("Search", new AjaxOptions
+    {
+        UpdateTargetId = "results",
+        InsertionMode = InsertionMode.Replace
+    }))
+    {
+        @Html.AntiForgeryToken()
+        <div class="col-md-3 text-center">
+            @Html.Label("Enter title: ", null, new { @class = "form-control" })
+        </div>
+        <div class="col-md-3">
+            @Html.TextBox("search", null, new { @class = "form-control" })
+        </div>
+        <div class="col-md-4">
+            <input type="submit" class="btn btn-default" value="Search" />
+        </div>
+    }
+
+</div>
+<div id="results">
+    @if (Model.Count <= 0)
+    {
+        @Html.Partial("_NoResults")
+    }
+    else
+    {
+        @Html.Partial("_AllNews")
+    }
+</div>
+
 

@@ -194,6 +194,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\NewsViewModels\AllNewsViewModel.cs" />
     <Compile Include="Models\NewsViewModels\CreateNewsViewModel.cs" />
     <Compile Include="Models\NewsViewModels\UserNewsViewModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -253,6 +254,7 @@
     <Content Include="Views\News\Details.cshtml" />
     <Content Include="Views\User\Edit.cshtml" />
     <Content Include="Views\Success\Index.cshtml" />
+    <Content Include="Views\Shared\_AllNews.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
