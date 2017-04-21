@@ -43,25 +43,28 @@
         </div>
         <div class="row form-group">
             <div class="col-md-6 text-right">
-                @Html.Label("Edit user's details: ")
-            </div>
-            <div class="col-md-6">
-                @Html.ActionLink("Edit", "Edit", "User", new { id = Model.Id }, null)
-            </div>
-        </div>
-        <div class="row form-group">
-            <div class="col-md-6 text-right">
                 @Html.Label("User role: ")
             </div>
             <div class="col-md-6">
                 @Html.Label(Model.Role)
             </div>
         </div>
-        @using (Html.BeginForm("Details", "User", FormMethod.Post))
+        @if (User.IsInRole("Administrator"))
         {
+            using (Html.BeginForm("Details", "User", FormMethod.Post))
+            {
+                <div class="row form-group">
+                    <div class="col-md-12 text-center col-md-offset-3">
+                        <input type="submit" value="Change Role!" class="form-control" />
+                    </div>
+                </div>
+            }
             <div class="row form-group">
-                <div class="col-md-12 text-center col-md-offset-3">
-                    <input type="submit" value="Change Role!" class="form-control" />
+                <div class="col-md-6 text-right">
+                    @Html.Label("Edit user's details: ")
+                </div>
+                <div class="col-md-6">
+                    @Html.ActionLink("Edit", "Edit", "User", new { id = Model.Id }, null)
                 </div>
             </div>
         }
@@ -83,12 +86,12 @@
             </div>
             foreach (var article in Model.UserArticles)
             {
-                <div class="row form-group col-md-offset-2">
-                    <div class="col-md-6">
+                <div class="row form-group col-md-offset-1">
+                    <div class="col-md-8">
                         @Html.Label(article.Title)<b>:</b>
                     </div>
-                    <div class="col-md-6">
-                        @Html.ActionLink("View article","Details","News", new { @id = article.Id }, null)
+                    <div class="col-md-4">
+                        @Html.ActionLink("View article", "Details", "News", new { @id = article.Id }, null)
                     </div>
                 </div>
             }
