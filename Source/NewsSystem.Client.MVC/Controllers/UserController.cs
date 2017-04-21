@@ -46,9 +46,11 @@ namespace NewsSystem.Client.MVC.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = ApplicationConstants.AdminRole)]
         public ActionResult Index()
         {
-            var allUsersFromDb = this.userService.GetAllUsers();
+            var allUsersFromDb = this.userService
+                                                 .GetAllUsers();
             var viewModel = new List<AllUsersViewModel>();
 
             foreach (var user in allUsersFromDb)
@@ -68,6 +70,7 @@ namespace NewsSystem.Client.MVC.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = ApplicationConstants.AdminRole)]
         public ActionResult Details(string id)
         {
             var userFromDB = this.userService
@@ -104,6 +107,7 @@ namespace NewsSystem.Client.MVC.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = ApplicationConstants.AdminRole)]
         public ActionResult Details(string id, string un)
         {
             var user = this.userService
@@ -126,6 +130,7 @@ namespace NewsSystem.Client.MVC.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = ApplicationConstants.AdminRole)]
         public ActionResult Edit(string id)
         {
             var userFromDb = this.userService
@@ -143,6 +148,7 @@ namespace NewsSystem.Client.MVC.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = ApplicationConstants.AdminRole)]
         public ActionResult Edit(UserDetailsViewModel model, string id)
         {
             var userToUpdate = this.userService
@@ -158,6 +164,7 @@ namespace NewsSystem.Client.MVC.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = ApplicationConstants.AdminRole)]
         public ActionResult Search(string search)
         {
             var userModel = this.userService

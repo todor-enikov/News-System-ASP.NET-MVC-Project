@@ -22,6 +22,7 @@ namespace NewsSystem.Client.MVC.Controllers
         }
 
         [HttpGet]
+        [AllowAnonymous]
         public ActionResult Index()
         {
             var allNewsFromDb = this.newsService
@@ -43,6 +44,7 @@ namespace NewsSystem.Client.MVC.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles =ApplicationConstants.AdminRole)]
         public ActionResult AddNews()
         {
             return View();
@@ -50,6 +52,7 @@ namespace NewsSystem.Client.MVC.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = ApplicationConstants.AdminRole)]
         public ActionResult AddNews(CreateNewsViewModel model)
         {
             var userId = User.Identity.GetUserId();
@@ -88,6 +91,7 @@ namespace NewsSystem.Client.MVC.Controllers
         }
 
         [HttpGet]
+        [AllowAnonymous]
         public ActionResult Details(Guid id)
         {
             var newsFromDb = this.newsService
@@ -109,6 +113,7 @@ namespace NewsSystem.Client.MVC.Controllers
         }
 
         [HttpPost]
+        [AllowAnonymous]
         [ValidateAntiForgeryToken]
         public ActionResult Search(string search)
         {
@@ -137,6 +142,7 @@ namespace NewsSystem.Client.MVC.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = ApplicationConstants.AdminRole)]
         public ActionResult Edit(Guid id)
         {
             var newsFromDb = this.newsService
@@ -153,6 +159,7 @@ namespace NewsSystem.Client.MVC.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = ApplicationConstants.AdminRole)]
         public ActionResult Edit(CreateNewsViewModel model, Guid id)
         {
             var userId = User.Identity.GetUserId();
