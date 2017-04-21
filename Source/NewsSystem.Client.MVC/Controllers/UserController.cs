@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNet.Identity.Owin;
 using NewsSystem.Auth;
-using NewsSystem.Client.MVC.Models.NewsViewModel;
+using NewsSystem.Client.MVC.Models.NewsViewModels;
 using NewsSystem.Client.MVC.Models.UserViewModels;
 using NewsSystem.Common;
 using NewsSystem.Services.Contracts;

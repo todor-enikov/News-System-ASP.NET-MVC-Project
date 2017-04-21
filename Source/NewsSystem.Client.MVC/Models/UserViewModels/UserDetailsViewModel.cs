@@ -1,4 +1,4 @@
-﻿using NewsSystem.Client.MVC.Models.NewsViewModel;
+﻿using NewsSystem.Client.MVC.Models.NewsViewModels;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
