@@ -86,6 +86,8 @@ namespace NewsSystem.Client.MVC.Controllers
 
             return RedirectToAction("Index", "Success");
         }
+
+        [HttpGet]
         public ActionResult Details()
         {
             return View();
