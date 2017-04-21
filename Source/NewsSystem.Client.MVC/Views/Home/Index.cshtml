@@ -1,10 +1,54 @@
-﻿@{
+﻿@model List<NewsSystem.Client.MVC.Models.NewsViewModels.FourNewsViewModel>
+
+@{
     ViewBag.Title = "Home Page";
 }
 <br />
 <br />
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="jumbotron col-md-8 text-center">
+        <h2>Last four added news.</h2>
+        <div class="row">
+            @Html.ActionLink(@Model[0].Title, "Details", "News", new { @id = Model[0].Id }, null)
+        </div>
+        <img src="@Url.Content(Model[0].ImagePath)" alt=@Model[0].Title title=@Model[0].Title style="width:545px" />
+        <br /><br />
+        <div class="row">
+            @Html.ActionLink(@Model[1].Title, "Details", "News", new { @id = Model[1].Id }, null)
+        </div>
+        <img src="@Url.Content(Model[1].ImagePath)" alt=@Model[1].Title title=@Model[1].Title style="width:545px" />
+        <br /><br />
+        <div class="row">
+            @Html.ActionLink(@Model[2].Title, "Details", "News", new { @id = Model[2].Id }, null)
+        </div>
+        <img src="@Url.Content(Model[2].ImagePath)" alt=@Model[2].Title title=@Model[2].Title style="width:545px" />
+        <br /><br />
+        <div class="row">
+            @Html.ActionLink(@Model[3].Title, "Details", "News", new { @id = Model[3].Id }, null)
+        </div>
+        <img src="@Url.Content(Model[3].ImagePath)" alt=@Model[3].Title title=@Model[3].Title style="width:545px" />
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Getting started</h2>
+        <p>
+            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
+            enables a clean separation of concerns and gives you full control over markup
+            for enjoyable, agile development.
+        </p>
+        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Get more libraries</h2>
+        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
+        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Web Hosting</h2>
+        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
+        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+    </div>
 </div>

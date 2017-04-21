@@ -1,4 +1,6 @@
-﻿using System;
+﻿using NewsSystem.Client.MVC.Models.NewsViewModels;
+using NewsSystem.Services.Contracts;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,9 +10,32 @@ namespace NewsSystem.Client.MVC.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly INewsService newsService;
+
+        public HomeController(INewsService newsService)
+        {
+            this.newsService = newsService;
+        }
+
         public ActionResult Index()
         {
-            return View();
+            var newsFromDb = this.newsService
+                                       .GetLastFourAddedNews();
+            var viewModel = new List<FourNewsViewModel>();
+
+            foreach (var news in newsFromDb)
+            {
+                var currentNews = new FourNewsViewModel()
+                {
+                    Id = news.Id,
+                    Title = news.Title,
+                    ImagePath = news.ImagePath
+                };
+
+                viewModel.Add(currentNews);
+            }
+
+            return View(viewModel);
         }
 
         public ActionResult About()

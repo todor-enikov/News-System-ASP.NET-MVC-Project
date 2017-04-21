@@ -196,6 +196,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\NewsViewModels\AllNewsViewModel.cs" />
     <Compile Include="Models\NewsViewModels\CreateNewsViewModel.cs" />
+    <Compile Include="Models\NewsViewModels\FourNewsViewModel.cs" />
     <Compile Include="Models\NewsViewModels\NewsDetailsViewModel.cs" />
     <Compile Include="Models\NewsViewModels\UserNewsViewModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
