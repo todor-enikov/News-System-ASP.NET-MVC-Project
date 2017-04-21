@@ -15,6 +15,8 @@ namespace NewsSystem.Services.Contracts
 
         void AddNews(Article newsToAdd);
 
+        IQueryable<Article> GetNewsByTitle(string title);
+
         void UpdateNews(Article newsToUpdate);
 
         void DeleteNews(Article newsToDelete);

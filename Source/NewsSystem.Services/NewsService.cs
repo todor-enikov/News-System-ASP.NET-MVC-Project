@@ -39,6 +39,12 @@ namespace NewsSystem.Services
             this.newsRepo.SaveChanges();
         }
 
+        public IQueryable<Article> GetNewsByTitle(string title)
+        {
+            return this.newsRepo.All()
+                                .Where(a => a.Title.Contains(title));
+        }
+
         public void UpdateNews(Article newsToUpdate)
         {
             this.newsRepo.Update(newsToUpdate);
