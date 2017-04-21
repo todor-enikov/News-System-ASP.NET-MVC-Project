@@ -15,6 +15,7 @@ namespace NewsSystem.Client.MVC.Controllers
 
         public ActionResult AddNews()
         {
+
             return View();
         }
 

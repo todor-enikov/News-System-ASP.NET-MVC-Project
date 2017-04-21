@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNet.Identity.Owin;
 using NewsSystem.Auth;
-using NewsSystem.Client.MVC.Models.ArticleViewModels;
+using NewsSystem.Client.MVC.Models.NewsViewModel;
 using NewsSystem.Client.MVC.Models.UserViewModels;
 using NewsSystem.Common;
 using NewsSystem.Services.Contracts;
@@ -73,11 +73,11 @@ namespace NewsSystem.Client.MVC.Controllers
             var userFromDB = this.userService
                                              .GetUserById(id);
             var userFromDbArticles = userFromDB.Articles;
-            var articles = new List<UserArticleViewModel>();
+            var articles = new List<UserNewsViewModel>();
 
             foreach (var userArticle in userFromDbArticles)
             {
-                var articleToAdd = new UserArticleViewModel()
+                var articleToAdd = new UserNewsViewModel()
                 {
                     Id = userArticle.Id,
                     Title = userArticle.Title

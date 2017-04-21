@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace NewsSystem.Client.MVC.Models.ArticleViewModels
+namespace NewsSystem.Client.MVC.Models.NewsViewModel
 {
-    public class UserArticleViewModel
+    public class UserNewsViewModel
     {
         public Guid Id { get; set; }
 

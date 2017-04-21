@@ -1,4 +1,4 @@
-﻿using NewsSystem.Client.MVC.Models.ArticleViewModels;
+﻿using NewsSystem.Client.MVC.Models.NewsViewModel;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -31,7 +31,7 @@ namespace NewsSystem.Client.MVC.Models.UserViewModels
         [EmailAddress]
         public string Email { get; set; }
 
-        public List<UserArticleViewModel> UserArticles { get; set; }
+        public List<UserNewsViewModel> UserArticles { get; set; }
 
         public string Role { get; set; }
     }
