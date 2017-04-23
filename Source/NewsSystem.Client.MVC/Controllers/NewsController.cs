@@ -43,7 +43,7 @@ namespace NewsSystem.Client.MVC.Controllers
         }
 
         [HttpGet]
-        [Authorize(Roles =ApplicationConstants.AdminRole)]
+        [Authorize(Roles = ApplicationConstants.AdminRole)]
         public ActionResult AddNews()
         {
             return View();
