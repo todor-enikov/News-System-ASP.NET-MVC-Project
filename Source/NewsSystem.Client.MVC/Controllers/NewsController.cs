@@ -132,7 +132,7 @@ namespace NewsSystem.Client.MVC.Controllers
         {
             var newsFromDb = this.newsService
                                              .GetNewsById(id);
-            var viewModel = new CreateNewsViewModel()
+            var viewModel = new EditNewsViewModel()
             {
                 Title = newsFromDb.Title,
                 Resume = newsFromDb.Resume,
@@ -145,21 +145,24 @@ namespace NewsSystem.Client.MVC.Controllers
 
         [HttpPost]
         [Authorize(Roles = ApplicationConstants.AdminRole)]
-        public ActionResult Edit(CreateNewsViewModel model, Guid id)
+        public ActionResult Edit(EditNewsViewModel model, Guid id)
         {
-            var userId = User.Identity.GetUserId();
-            var file = model.ImageFile;
-            var imagePath = ApplicationConstants.ImagePath + file.FileName;
-            this.UploadFile(file);
-
             var newsToUpdate = newsService
                                         .GetNewsById(id);
+
+            var userId = User.Identity.GetUserId();
+            var file = model.ImageFile;
+            this.UploadFile(file);
+            if (file != null)
+            {
+                var imagePath = ApplicationConstants.ImagePath + file.FileName;
+                newsToUpdate.ImagePath = imagePath;
+            }
 
             newsToUpdate.Title = model.Title;
             newsToUpdate.Resume = model.Resume;
             newsToUpdate.Content = model.Content;
             newsToUpdate.AddedOn = DateTime.UtcNow;
-            newsToUpdate.ImagePath = imagePath;
             newsToUpdate.UserId = userId;
             this.newsService.UpdateNews(newsToUpdate);
 

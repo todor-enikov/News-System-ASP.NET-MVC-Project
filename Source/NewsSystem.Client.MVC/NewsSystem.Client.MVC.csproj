@@ -196,6 +196,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\NewsViewModels\AllNewsViewModel.cs" />
     <Compile Include="Models\NewsViewModels\CreateNewsViewModel.cs" />
+    <Compile Include="Models\NewsViewModels\EditNewsViewModel.cs" />
     <Compile Include="Models\NewsViewModels\FourNewsViewModel.cs" />
     <Compile Include="Models\NewsViewModels\NewsDetailsViewModel.cs" />
     <Compile Include="Models\NewsViewModels\UserNewsViewModel.cs" />
@@ -262,7 +263,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\Images\" />
-    <Folder Include="Views\ChangeRole\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
