@@ -185,6 +185,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\ViewEngineConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
@@ -208,6 +209,11 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\ImagesForErrorPages\400-badrequest.jpg" />
+    <Content Include="Content\ImagesForErrorPages\401-unauthorized.jpg" />
+    <Content Include="Content\ImagesForErrorPages\403-forbidden.jpg" />
+    <Content Include="Content\ImagesForErrorPages\404-NotFound.jpg" />
+    <Content Include="Content\ImagesForErrorPages\500-IternalServerError.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -259,6 +265,11 @@
     <Content Include="Views\Success\Index.cshtml" />
     <Content Include="Views\Shared\_AllNews.cshtml" />
     <Content Include="Views\News\Edit.cshtml" />
+    <Content Include="Views\Error\BadRequest.cshtml" />
+    <Content Include="Views\Error\Forbidden.cshtml" />
+    <Content Include="Views\Error\InternalServer.cshtml" />
+    <Content Include="Views\Error\NotFound.cshtml" />
+    <Content Include="Views\Error\UnAuthorized.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
