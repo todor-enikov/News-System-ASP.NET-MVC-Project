@@ -16,5 +16,18 @@ namespace NewsSystem.Client.MVC.Controllers
         {
             return RedirectToAction("Index", "Home");
         }
+
+        [HttpGet]
+        public ActionResult CannotEdit()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CannotEdit(string submit)
+        {
+            return RedirectToAction("Index", "Home");
+        }
     }
 }
