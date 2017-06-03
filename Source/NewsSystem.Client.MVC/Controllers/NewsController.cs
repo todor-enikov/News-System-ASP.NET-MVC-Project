@@ -132,15 +132,25 @@ namespace NewsSystem.Client.MVC.Controllers
         {
             var newsFromDb = this.newsService
                                              .GetNewsById(id);
-            var viewModel = new EditNewsViewModel()
+            if (!newsFromDb.IsEditing)
             {
-                Title = newsFromDb.Title,
-                Resume = newsFromDb.Resume,
-                Content = newsFromDb.Content,
-                Id = newsFromDb.Id
-            };
+                var viewModel = new EditNewsViewModel()
+                {
+                    Title = newsFromDb.Title,
+                    Resume = newsFromDb.Resume,
+                    Content = newsFromDb.Content,
+                    Id = newsFromDb.Id
+                };
 
-            return View(viewModel);
+                newsFromDb.IsEditing = true;
+                this.newsService.UpdateNews(newsFromDb);
+
+                return View(viewModel);
+            }
+            else
+            {
+                return RedirectToAction("CannotEdit", "Success");
+            }
         }
 
         [HttpPost]
@@ -164,6 +174,7 @@ namespace NewsSystem.Client.MVC.Controllers
             newsToUpdate.Content = model.Content;
             newsToUpdate.AddedOn = DateTime.UtcNow;
             newsToUpdate.UserId = userId;
+            newsToUpdate.IsEditing = false;
             this.newsService.UpdateNews(newsToUpdate);
 
             return RedirectToAction("Details", "News", new { id = model.Id }); ;
