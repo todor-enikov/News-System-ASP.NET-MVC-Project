@@ -30,6 +30,8 @@ namespace NewsSystem.Data.Models
         [DataType(DataType.DateTime)]
         public DateTime AddedOn { get; set; }
 
+        public bool IsEditing { get; set; }
+
         public string UserId { get; set; }
 
         public virtual User User { get; set; }

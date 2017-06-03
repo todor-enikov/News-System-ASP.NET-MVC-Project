@@ -270,6 +270,7 @@
     <Content Include="Views\Error\InternalServer.cshtml" />
     <Content Include="Views\Error\NotFound.cshtml" />
     <Content Include="Views\Error\UnAuthorized.cshtml" />
+    <Content Include="Views\Success\CannotEdit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -323,7 +324,9 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>1980</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:1980/</IISUrl>
+          <IISUrl>http://localhost:19866/</IISUrl>
+          <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
+          <IISAppRootUrl>http://localhost:19866/</IISAppRootUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
